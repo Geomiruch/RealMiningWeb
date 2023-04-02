@@ -8,3 +8,5 @@
 </ul>
 <h3>Description</h3>
 Real Mining Community - web application for user guidance, discussions, announcements and instant support of the users of Real Mining Minecraft mod (developed by Petro "geomiruch" Krehel).
+<h3>Product documentation:</h3>
+<h4>Use cases:</h4>
