@@ -1,0 +1,66 @@
+﻿@model User_Story.Models.User
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+
+<div>
+    
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Avatar
+        </dt>
+        <dd class = "col-sm-10">
+            <img src="@Model.Avatar" alt="avatar" width="150px;"/>
+        </dd>
+        @if (ViewBag.My)
+        {
+            <dt class = "col-sm-2">
+                Login
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.Login)
+            </dd>
+            <dt class = "col-sm-2">
+                Password
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.Password)
+            </dd>    
+        }
+        <dt class = "col-sm-2">
+            First Name
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+        <dt class = "col-sm-2">
+            Last Name
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+        <dt class = "col-sm-2">
+            Role
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Role.Name)
+        </dd>
+    </dl>
+</div>
+<div>
+    @if(ViewBag.My){
+        <p>
+            <a asp-action="Edit" asp-route-id="@Model.ID">Edit</a>
+        </p>
+        <p>
+            <a asp-action="Delete" asp-route-id="@Model.ID">Delete</a>
+        </p>
+        <p>
+            <a asp-area="" asp-controller="Account" asp-action="Logout">Sign out</a>
+        </p>
+    }
+</div>

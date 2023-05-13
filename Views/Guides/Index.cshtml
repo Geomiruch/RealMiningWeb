@@ -1,0 +1,112 @@
+﻿@model User_Story.Models.LoginModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Minecraft Mods (Real-Mining)</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+	<style type="text/css">
+		p { color: #000000; line-height: 115%; text-align: left; orphans: 2; widows: 2; margin-left: 0.01in; margin-right: 3.36in; text-indent: -0.01in; margin-bottom: 0.1in; direction: ltr; background: transparent }
+		p.western { font-family: "Arial", serif }
+		p.cjk { font-family: "Arial" }
+		p.ctl { font-family: "Arial" }
+		h1 { color: #434343; line-height: 108%; text-align: left; page-break-inside: avoid; orphans: 2; widows: 2; margin-left: 1.58in; text-indent: -0.01in; margin-top: 0in; margin-bottom: 0.04in; direction: ltr; background: transparent; page-break-after: avoid }
+		h1.western { font-family: "Arial", serif; font-size: 14pt; font-weight: bold }
+		h1.cjk { font-family: "Arial"; font-size: 14pt; font-weight: bold }
+		h1.ctl { font-family: "Arial" }
+	</style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Minecraft Mods (Real-Mining)</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+
+                        @if (User.IsInRole("Moderator"))
+                        {
+                            <li>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Users" asp-action="Index">Moderator Page</a>
+                            </li>
+                        }
+
+                        <li>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Files" asp-action="Index">Files</a>
+                        </li>
+                        <li>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="News" asp-action="Index">News</a>
+                        </li>
+                        <li>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Topics" asp-action="Index">Forums</a>
+                        </li>
+                        <li>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Guides" asp-action="Index">Guide</a>
+                        </li>
+                        <li>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="InstallationGuides" asp-action="Index">Installation Guide</a>
+                        </li>
+
+                        @if (User.Identity.IsAuthenticated)
+                        {
+
+                            <li>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Users" asp-action="Details">Profile</a>
+                            </li>
+                            <li>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Logout">Sign out</a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">Sign In</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Register">Sign Up</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+
+		<h1>Minecraft Mods (Real-Mining)</h1>
+		<p class="western" style="line-height: 108%; margin-left: -0in; margin-right: 4.78in; margin-bottom: 0.23in">
+			<b>Description:</b>
+		</p>
+		<p class="western" style="line-height: 100%; margin-left: 0.24in; text-indent: -0.25in; margin-bottom: 0.02in">
+			<b>
+				This mod adds a sliding mechanic to stone blocks and to sand and gravel blocks. Also, now you have to use mortar on the cobblestones or your house will fall apart) This mod changed a few recipes to make the early game more realistic and challenging. To make your first wooden blocks, you'll need to get carpenter's glue from spruce logs and use flint tools instead of wood or stone.
+				This mod will be updated soon to add more interesting realistic features.
+			</b>
+		</p>
+		
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+</body>
+</html>

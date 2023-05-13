@@ -1,0 +1,100 @@
+﻿@model IEnumerable<User_Story.Models.Files>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Index" method="get">
+            
+            <div class="form-check">
+                <input name="sortByMod" class="form-check-input" type="checkbox" value="1" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Sort By Mod Version
+                </label>
+            </div>
+            
+            <div class="form-check">
+                <input name="sortByGame" class="form-check-input" type="checkbox" value="2" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Sort By Game Version
+                </label>
+            </div>
+            
+            <div class="form-check">
+                <input name="sortByDate" class="form-check-input" type="checkbox" value="3" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Sort By Upload Date
+                </label>
+            </div>
+            
+            <div class="form-group">
+                <label class="control-label">Game Version</label>
+                <input name="gameVersion" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Filter" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@if (User.Identity.IsAuthenticated)
+{
+    <p>
+        <a asp-action="Create">Upload File</a>
+    </p>
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModeVesrion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GameVersion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UploadDate)
+            </th>
+            <th>
+                Creator
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModeVesrion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GameVersion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UploadDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.FullName)
+            </td>
+            <td>
+                <a asp-action="Download" asp-route-id="@item.ID">Download</a>
+                    @if (User.IsInRole("Moderator") || (User.Identity.IsAuthenticated && User.Identity.Name.Equals(item.User.Login)))
+                {
+                    <a asp-action="Edit" asp-route-id="@item.ID">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                }
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
