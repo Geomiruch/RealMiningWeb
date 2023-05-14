@@ -14,4 +14,5 @@ Real Mining Community - web application for user guidance, discussions, announce
       <li><a href="https://docs.google.com/spreadsheets/d/10gl9GJhF36_IiBe4ndo_J5ASwU1qkiVJEuDd_OtHv4g/edit?usp=sharing">Project plan</a></li>
       <li><a href="https://docs.google.com/document/d/1XnzYG4zxBV1kZEi8ZuSHKkUvNi8osYF4ao93-USm4BA/edit?usp=sharing">User stories</a></li>
       <li><a href="https://www.figma.com/file/WYSxkJ5CG3pDyr2UxhzjA7/Free-Useful-Forms-(Community)?node-id=0-1">Project mock up</a></li>
+      <li><a href="https://docs.google.com/spreadsheets/d/1yQa6W4riM31ZgCBYhK4KA8d28pbr8tLqLbOxAXMNSM8/edit?usp=sharing">Manual test cases</a></li>
 </ul>
